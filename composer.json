@@ -1,0 +1,76 @@
+{
+    "name": "bytesparrow/moodle-composer-base",
+    "description": "A composer plugin to ease the maintenance and installation of Moodle.",
+    "keywords": [
+        "moodle",
+        "composer"
+    ],
+    "license": "GPLv3",
+    "version": "v1.0-alpha1",
+    "type": "composer-plugin",
+    "authors": [
+        {
+            "name": "Bernhard Strehl",
+            "email": "moodle@bytesparrow.de",
+            "homepage": "https://www.bytesparrow.de",
+            "role": "Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis.middag.com.br"
+        }
+    ],
+    "require": {
+        "composer/installers": "^2",
+        "composer-plugin-api": "^2",
+        "moodle/moodle": "v4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "bytesparrow\\": "src"
+        }
+    },
+    "scripts": {
+        "pre-install-cmd": "bytesparrow\\MoodleComposerBase::preInstall",
+        "pre-update-cmd": "bytesparrow\\MoodleComposerBase::preUpdate",
+        "post-update-cmd": "bytesparrow\\MoodleComposerBase::postUpdate",
+        "post-install-cmd": "bytesparrow\\MoodleComposerBase::postInstall"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "php": "8.2"
+        },
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    },
+    "minimum-stability": "beta",
+    "extra": {
+        "class": "bytesparrow\\MoodleComposerBase",
+        "keepfiles": ["config.php"],
+        "installer-paths": {
+
+            "vendor/moodle/moodle/theme/{$name}": [
+
+                "type:moodle-theme"
+
+            ],
+
+            "vendor/moodle/moodle/local/{$name}": [
+
+                "type:moodle-local"
+
+            ],
+
+            "vendor/moodle/moodle/customfield/field/{$name}": [
+
+                "type:moodle-customfield"
+
+            ]
+        }
+    }
+}
