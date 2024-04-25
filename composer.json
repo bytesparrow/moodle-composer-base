@@ -6,7 +6,7 @@
         "composer"
     ],
     "license": "GPLv3",
-    "version": "v1.0-alpha2",
+    "version": "v1.0-alpha3",
     "type": "composer-plugin",
     "authors": [
         {
@@ -25,7 +25,7 @@
     "require": {
         "composer/installers": "^2",
         "composer-plugin-api": "^2",
-        "moodle/moodle": "v4.3"
+        "moodle/moodle": "v4.3.1"
     },
     "autoload": {
         "psr-4": {
