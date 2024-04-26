@@ -6,7 +6,7 @@
         "composer"
     ],
     "license": "GPLv3",
-    "version": "v1.0-alpha5",
+    "version": "v1.0-alpha6",
     "type": "composer-plugin",
     "authors": [
         {
