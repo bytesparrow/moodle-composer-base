@@ -28,7 +28,7 @@ function rcopy($src, $dst) {
   if (file_exists($dst))
     rrmdir($dst);
   if (is_dir($src)) {
-    mkdir($dst);
+    mkdir($dst, 0755, true);
     $files = scandir($src);
     foreach ($files as $file)
       if ($file != "." && $file != "..")
