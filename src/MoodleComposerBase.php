@@ -14,7 +14,6 @@ use Composer\Plugin\PluginInterface;
 use Composer\Composer;
 use Composer\IO\IOInterface;
 
-require_once(dirname(__FILE__) . "/helperfunctions.php");
 
 /**
  * Provides static functions for composer script events.
@@ -114,7 +113,7 @@ class MoodleComposerBase implements PluginInterface {
 
       if (file_exists($sourcepath)) {
         $io->write("Copying $sourcepath to $targetpath");
-        if (!rcopy($sourcepath, $targetpath)) {
+        if (!self::rcopy($sourcepath, $targetpath)) {
           $io->error("FAILURE copying $sourcepath");
         }
       }
@@ -168,6 +167,68 @@ class MoodleComposerBase implements PluginInterface {
    */
   public function uninstall(Composer $composer, IOInterface $io) {
     $io->write("You've successfully uninstalled bytesparrow/moodle-composer-base.");
+  }
+
+  
+  
+  
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /**********
+   * HELPERFUNCTIONS
+   */
+  
+  
+  
+  /**
+   * stolen from  promaty at gmail dot com ¶
+   * via https://www.php.net/manual/en/function.copy.php
+   *   
+   * */
+// removes files and non-empty directories
+  public static function rrmdir($dir) {
+    if (is_dir($dir)) {
+      $files = scandir($dir);
+      foreach ($files as $file) {
+        if ($file != "." && $file != "..") {
+          self::rrmdir("$dir/$file");
+        }
+      }
+      rmdir($dir);
+    }
+    else if (file_exists($dir)) {
+      unlink($dir);
+    }
+  }
+
+// copies files and non-empty directories
+  public static function rcopy($src, $dst) {
+    if (file_exists($dst)) {
+      self::rrmdir($dst);
+    }
+    if (is_dir($src)) {
+      mkdir($dst, 0755, true);
+      $files = scandir($src);
+      foreach ($files as $file) {
+        if ($file != "." && $file != "..") {
+          self::rcopy("$src/$file", "$dst/$file");
+        }
+      }
+    }
+    else if (file_exists($src)) {
+      copy($src, $dst);
+    }
+
+    //haha.
+    return true;
   }
 
 }
