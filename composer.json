@@ -6,7 +6,7 @@
         "composer"
     ],
     "license": "GPLv3",
-    "version": "v1.0-alpha8",
+    "version": "v1.0-alpha9",
     "type": "composer-plugin",
     "authors": [
         {
@@ -20,6 +20,10 @@
         {
             "type": "composer",
             "url": "https://satis.middag.com.br"
+        },
+        {
+            "type": "composer",
+            "url": "https://packagist.org"
         }
     ],
     "require": {
