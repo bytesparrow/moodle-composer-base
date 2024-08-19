@@ -36,6 +36,7 @@ class MoodleComposerBase implements PluginInterface {
     $extra = $event->getComposer()->getPackage()->getExtra();
     #$io->write("extra -> keepfiles IS:");
     #$io->write(var_export($extra['keepfiles'],1));
+    self::copyExtra($event, "backup");
   }
 
   /**
