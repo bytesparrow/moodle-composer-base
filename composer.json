@@ -56,7 +56,7 @@
         "class": "bytesparrow\\MoodleComposerBase",
         "keepfiles": ["config.php"],
         "installer-paths": {
-            "vendor/moodle/moodle/{$name}":  ["type:moodle-mod"],
+            "vendor/moodle/moodle/mod/{$name}":  ["type:moodle-mod"],
             "vendor/moodle/moodle/admin/report/{$name}":  ["type:moodle-admin_report"],
             "vendor/moodle/moodle/lib/editor/atto/plugins/{$name}":  ["type:moodle-atto"],
             "vendor/moodle/moodle/admin/tool/{$name}":  ["type:moodle-tool"],
