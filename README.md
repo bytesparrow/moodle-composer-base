@@ -101,6 +101,8 @@ Whilst moodle-composer uses hardcoded pathes in code to move moodle-plugins to a
 In addition: with every Moodle-Upgrade I had problems with custom files being deleted from Moodle - this is composer specific.
 This is what the "keepfiles"-directive is for to avoid some headaches.
 
+## Unpacked in a wrong directory? 
+Maybe sth is wrong. You can compare the definition in this composer.json with the data in https://github.com/composer/installers/blob/main/src/Composer/Installers/MoodleInstaller.php
 
 > [!WARNING]
 > This project is in a very early state. Use at your own risk. When it's production-ready it will be published as a real composer-package.
