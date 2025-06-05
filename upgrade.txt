@@ -1,0 +1,13 @@
+Um geänderte / neue Libraries zu installieren, benötigt es die Einträge aus:
+https://github.com/composer/installers/blob/main/src/Composer/Installers/MoodleInstaller.php
+
+Und folgenden Prompt für ein LLM:
+
+Schreibe diesen Code in composer-code um.
+Vertausche dabei die linke und rechte Seite.
+die linke seite beginnt mit vendor/moodle/moodle/.
+Die rechte Seite wird zum Array. der Eintrag wird ergänzt um  "type:moodle-"
+beispiel:
+'mod'                => 'mod/{$name}/', wird zu "vendor/moodle/moodle/mod/{$name}":  ["type:moodle-mod"],
+Hier die Datei:
+...
